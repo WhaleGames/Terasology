@@ -41,6 +41,8 @@ public class ShaderManager {
     private final HashMap<String, Integer> _vertexShader = new HashMap<String, Integer>(32);
     private static ShaderManager _instance = null;
 
+    private String _activeShader = null;
+
     private String _preProcessorPreamble = "#version 120 \n float TEXTURE_OFFSET = " + Block.TEXTURE_OFFSET + "; \n";
 
     /**
@@ -166,7 +168,18 @@ public class ShaderManager {
             return;
         }
 
-        int shader = getShader(s);
+        _activeShader = s;
+        int shader = getShader(_activeShader);
+        GL20.glUseProgram(shader);
+    }
+
+    public void reEnableShader() {
+        if (_activeShader == null) {
+            GL20.glUseProgram(0);
+            return;
+        }
+
+        int shader = getShader(_activeShader);
         GL20.glUseProgram(shader);
     }
 

@@ -345,7 +345,7 @@ public final class Terasology {
 
         // Update the viewing distance
         double minDist = (VIEWING_DISTANCES[_activeViewingDistance] / 2) * 16.0f;
-        glFogf(GL_FOG_START, (float) (minDist * 0.001));
+        glFogf(GL_FOG_START, (float) (minDist * 0.1));
         glFogf(GL_FOG_END, (float) minDist);
     }
 
@@ -388,7 +388,7 @@ public final class Terasology {
             if (!screenHasFocus())
                 getActiveWorldRenderer().getPlayer().updateInput();
 
-            Display.sync(60);
+            //Display.sync(60);
 
             updateFps();
             _timeAccumulator += getTime() - startTime;

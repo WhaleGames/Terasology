@@ -252,9 +252,9 @@ public class ChunkGeneratorTerrain extends ChunkGenerator {
     public double calcMountainDensity(double x, double y, double z) {
         double x1, y1, z1;
 
-        x1 = x * 0.006;
+        x1 = x * 0.005;
         y1 = y * 0.002;
-        z1 = z * 0.006;
+        z1 = z * 0.005;
 
         double result = _pGen4.fBm(x1, y1, z1);
 

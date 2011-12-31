@@ -187,6 +187,7 @@ public class AABB {
     /**
      * Renders this AABB.
      * <p/>
+     *
      * @param lineThickness The thickness of the line
      */
     public void render(float lineThickness) {
